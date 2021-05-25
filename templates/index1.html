@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Case Predictor</title>
+    <link rel='shortcut icon' type='image/x-icon' href='https://img.etimg.com/thumb/width-1200,height-900,imgsize-112918,resizemode-1,msid-82429011/industry/healthcare/biotech/healthcare/covid-uk-variant-dominates-north-india-double-mutant-maharashtra-gujarat-karnataka.jpg' />
+    
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="margin: 0px;">
+    <div>
+    <div class="container">
+    <h2  style="margin-top: 0px; margin-bottom: 0px;"><span class="heading_font">Covid-19 Case Predictor</span></h2>
+     <h3 class="description"><p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.<br>It helps to predict the number of cases in any state on the following day,<br> according to the
+     total number of samples tested in that state the previous day.</p></h3></div>
+        <form action="{{ url_for('predict')}}" method="post">
+            <br>
+           <br><br><br>
+            <select name="state" id="second" required="required" style="color: #4d089a;font-family: 'Pacifico', cursive;">
+              <option value="" disabled selected hidden>Choose State...</option>
+              <option value="Andhra Pradesh" >Andhra Pradesh</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Dadar and Nagar Haveli and Daman and Diu">Dadar and Nagar Haveli</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+            <br><br>
+               <br><br>
+                 
+             <input id="third" name="totalsamples" type="number " placeholder="Total Samples(collected on previous day)">
+            
+             <br><br><br><input id="sub" type="submit" class="my-cta-button" value="Predict">
+            <br>
+    
+        </form>
+
+
+
+        <br><h3 class="prediction">{{ prediction_text }}<h3>
+        
+    </div>
+        <div class="footer">
+        <div class="contact" style="margin-top:12px">
+               <a target="_blank" href="https://github.com/runwalakshat5" style=" color: white;"><i class="fab fa-github fa-lg contact-icon" aria-hidden="true"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/akshat-runwal-04a827190/" style="color: white;"><i class="fab fa-linkedin fa-lg contact-icon" aria-hidden="true"></i></a>
+           </div>
+          <p style="margin-bottom:5px;margin-top:5px">Made with ❤️ by Akshat Runwal.</p>
+        </div>
+
+
+    <style>
+        body {
+            
+            text-align: center;
+            padding: 0px;
+            background-image:url('https://cdn.dribbble.com/users/1166389/screenshots/14126070/media/a1dec6cc35c6ecb57a77dd358d2c7cc9.gif');
+            background-size:100%;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            height:100%;
+            width:100%;
+            max-width: 100%;
+            overflow-x: hidden;
+                font-family: Arial, Helvetica,sans-serif;
+    text-align: center;
+    
+        }
+        .my-cta-button {
+    background: #f9f9f9;
+    border: 2px solid #000000;
+    border-radius: 1000px;
+    box-shadow: 3px 3px #8c8c8c;
+    margin-top: 10px;
+    padding: 10px 36px;
+    color: #000000;
+    display: inline-block;
+    font: italic bold 20px/1 "Calibri", sans-serif;
+    text-align: center;
+}
+.prediction{
+color: #4d089a;
+font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    background-color:white;
+
+}
+
+.my-cta-button:active {
+    box-shadow: 0 0;
+}
+.my-cta-button:hover {
+    color: #4d089a;
+    border: 2px solid #4d089a;
+}
+    
+        .description p {
+    color: #ffffff;
+    font-family: 'Pacifico', cursive;
+    font-size: 14px;
+    margin: -5px 0 0;
+}
+        .heading_font {
+        color: #ffffff;
+        font-family: 'Pacifico', cursive;
+        font-size: 30px;
+        font-weight: normal;
+        }
+        
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:#0bebf6 ;
+  opacity: 1; /* Firefox */
+}
+        
+        .container{ 
+        
+            padding: 5px;
+        position: relative;
+        background: linear-gradient( 
+            45deg
+         , #0bebf6,#443B96, #15b9f8);
+        background-size: 500% 500%;
+        
+        
+        }
+ input:focus::placeholder {
+  color: transparent;
+}
+        
+        
+        html {
+        height:100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #second {
+            border-radius: 24px;
+            height: 45px;
+            font-size: 20px;
+            text-align: center;
+            font-family: 'Pacifico', cursive; font-size: 25px;
+            border-color:#4d089a;
+            border:solid;
+            
+        }
+
+        #third {
+            border-radius: 24px;
+            height: 45px;
+            width: 545px;
+            font-size: 20px;
+            text-align: center;
+       color: #4d089a;font-family: 'Pacifico', cursive; font-size: 25px;
+       border-color:#4d089a;
+       border:solid;
+       
+       
+        }
+        input:focus{
+    outline: none;
+}
+ select:focus{
+    outline: none;
+}
+  .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+   background: linear-gradient( 
+            45deg
+         , #0bebf6,#1d0ac5, #15b9f8);
+        background-size: 500% 500%;
+   color: #ffffff;
+        font-family: 'Pacifico', cursive;
+        font-size: 15px;
+        font-weight: normal;
+  text-align: center;
+}
+        
+
+    </style>
+</body>
+
+</html>
