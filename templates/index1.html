@@ -70,7 +70,7 @@
 
 
 
-        <br><h3 class="prediction">{{ prediction_text }}<h3>
+        <br><h6 class="prediction">{{ prediction_text }}</h6>
         
     </div>
         <div class="footer">
@@ -100,6 +100,18 @@
     text-align: center;
     
         }
+        
+         @media only screen and (max-width: 600px) {
+          #third{
+            width:370px;
+
+             }      
+        }
+    @media only screen and (min-width: 1200px) {
+        #third{
+      width:545px;
+        }   
+    }
         .my-cta-button {
     background: #f9f9f9;
     border: 2px solid #000000;
@@ -190,7 +202,6 @@ font-family: 'Pacifico', cursive;
         #third {
             border-radius: 24px;
             height: 45px;
-            width: 545px;
             font-size: 20px;
             text-align: center;
        color: #4d089a;font-family: 'Pacifico', cursive; font-size: 25px;
